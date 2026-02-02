@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep Chugh - Executive Portfolio</title>
+    <!-- Using Inter font for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette - Modern Professional */
+            --bg-body: #f8fafc;
+            /* Slate 50 */
+            --bg-card: #ffffff;
+            /* White */
+            --primary: #0f172a;
+            /* Slate 900 - Dark Navy */
+            --secondary: #3b82f6;
+            /* Blue 500 - Bright Blue */
+            --secondary-dark: #1d4ed8;
+            /* Blue 700 */
+            --accent: #f59e0b;
+            /* Amber 500 - Gold/Orange */
+            --text-main: #334155;
+            /* Slate 700 */
+            --text-light: #64748b;
+            /* Slate 500 */
+            --border: #e2e8f0;
+            /* Slate 200 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* --- Sticky Navigation --- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            /* Centered links */
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            /* Subtle grid pattern overlay */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            /* Use blue for pop */
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .location span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Main Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+            /* Offset for sticky nav */
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+        }
+
+        /* --- Featured Box (Why Right Fit) --- */
+        .featured-box {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        .featured-box h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .featured-list {
+            list-style: none;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .featured-list li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--text-main);
+        }
+
+        .featured-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            /* Green or Blue for checkmarks */
+            font-weight: bold;
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 0;
+            width: 3px;
+            background: #e2e8f0;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .job-card::after {
+            /* Timeline dot */
+            content: '';
+            position: absolute;
+            left: -37px;
+            /* 30px visual padding + 7px offset */
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--secondary);
+            border: 4px solid var(--bg-body);
+            border-radius: 50%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .job-info h3 {
+            /* Company */
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .job-info h4 {
+            /* Title */
+            font-size: 1.25rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .job-meta {
+            text-align: right;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .job-desc {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            font-style: italic;
+        }
+
+        .achievements h5 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin: 20px 0 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .achievements ul {
+            list-style: none;
+        }
+
+        .achievements li {
+            position: relative;
+            padding: 8px 0 8px 25px;
+            color: var(--text-main);
+        }
+
+        .achievements li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 1.5em;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+        }
+
+        /* --- Recommendations Grid --- */
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .rec-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rec-text {
+            flex-grow: 1;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .rec-text::before {
+            content: '“';
+            font-family: serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: #e2e8f0;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            z-index: 0;
+        }
+
+        .rec-text span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .rec-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .author-initial {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--primary);
+        }
+
+        .author-info small {
+            color: var(--text-light);
+        }
+
+        /* --- Skills Grid --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-box h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #eff6ff;
+            padding-bottom: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #eff6ff;
+            /* Very light blue */
+            color: var(--secondary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- Awards & Education Cards --- */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .simple-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .simple-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .simple-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            margin: 0 15px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .rec-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .job-meta {
+                text-align: left;
+                margin-top: 5px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Hide nav links on mobile for simplicity */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#competencies">Competencies</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>SANDEEP CHUGH</h1>
+            <div class="tagline">AI/ML & Vision Language Model Leader | Enterprise Cloud Transformation | Lead Technical
+                Program Manager</div>
+
+            <div class="location">
+                <span>📍 Chicago, IL</span>
+                <span>•</span>
+                <span>💼 U.S. Permanent Resident</span>
+                <span>•</span>
+                <span>🏆 PMP & CSM Certified</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="mailto:sandeepchugh2632@gmail.com" class="btn btn-primary">📧 Email Me</a>
+                <a href="https://www.linkedin.com/in/sandeep-chugh-chicago/" target="_blank" class="btn btn-glass">🔗
+                    LinkedIn</a>
+                <a href="tel:+12817957042" class="btn btn-glass">📞 (281) 795-7042</a>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stats-container">
+                <div class="stat">
+                    <span class="stat-val">$57M+</span>
+                    <span class="stat-label">Client Business Value</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-val">95%</span>
+                    <span class="stat-label">On-Time Delivery</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-val">8</span>
+                    <span class="stat-label">Countries Deployed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-val">50+</span>
+                    <span class="stat-label">Team Members Led</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Fit -->
+    <div class="container" id="about">
+        <h2 class="section-title">Executive Profile</h2>
+
+        <div style="margin-bottom: 40px; font-size: 1.1rem; color: var(--text-main);">
+            <p style="margin-bottom: 20px;">
+                Cloud transformation leader with 20+ years delivering enterprise-scale AWS, Azure, and hybrid cloud
+                solutions for Fortune 500 clients including Amazon, Ecolab, BP, and global industrial enterprises.
+                Expert in translating business objectives into technical solutions, leading cross-functional delivery
+                teams, and managing complex client engagements that drive measurable business outcomes.
+            </p>
+            <p>
+                Leading AI/ML initiatives for Amazon Transportation's global safety technology, architecting Vision
+                Language Models (VLM) for real-time unsafe driving behavior detection using camera feeds across 100K+
+                vehicles. Expert in full ML development lifecycle from cloud-based model training (AWS SageMaker) to
+                edge deployment (AWS IoT Greengrass), achieving 95%+ accuracy.
+            </p>
+        </div>
+    </div>
+
+    <!-- Competencies -->
+    <div class="container" id="competencies">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-container">
+            <!-- Reuse skills grid style for competencies list -->
+            <div class="skill-box">
+                <h3>Client Engagement & Delivery</h3>
+                <div class="tags">
+                    <span class="tag">Enterprise Program Management</span>
+                    <span class="tag">C-Suite Engagement</span>
+                    <span class="tag">Agile/SAFe/PMP</span>
+                    <span class="tag">Scope/Schedule/Budget</span>
+                    <span class="tag">Client Success</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Technical Leadership</h3>
+                <div class="tags">
+                    <span class="tag">Solution Architecture</span>
+                    <span class="tag">Risk Management</span>
+                    <span class="tag">Cross-Functional Leadership</span>
+                    <span class="tag">Mentorship</span>
+                    <span class="tag">Innovation</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Cloud Architecture</h3>
+                <div class="tags">
+                    <span class="tag">Cloud Adoption Framework</span>
+                    <span class="tag">Hybrid Strategy</span>
+                    <span class="tag">Microservices</span>
+                    <span class="tag">DevOps & CI/CD</span>
+                    <span class="tag">FinOps</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Security & Compliance</h3>
+                <div class="tags">
+                    <span class="tag">AWS Security Best Practices</span>
+                    <span class="tag">GDPR/CCPA/SOC2</span>
+                    <span class="tag">IAM</span>
+                    <span class="tag">Privacy-First</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="container" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="timeline">
+            <!-- AMAZON -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3>AMAZON</h3>
+                        <h4>Senior Technical Program Manager, Transportation Safety Technology</h4>
+                    </div>
+                    <div class="job-meta">
+                        <div>June 2023 – Present</div>
+                        <div>Chicago, IL</div>
+                    </div>
+                </div>
+                <p class="job-desc">
+                    Leading enterprise-scale AI/ML safety platforms powering Amazon's global last-mile and middle-mile
+                    transportation operations across 100K+ vehicles in 8 countries.
+                </p>
+
+                <div class="achievements">
+                    <h5>AI/ML & Computer Vision Leadership</h5>
+                    <ul>
+                        <li>Led Vision Language Model (VLM) implementation for real-time unsafe driving behavior
+                            detection using in-cabin camera feeds across 100K+ vehicles.</li>
+                        <li>Architected end-to-end ML development lifecycle from cloud training (AWS SageMaker) to edge
+                            deployment (AWS IoT Greengrass).</li>
+                        <li>Designed ML ops pipeline for model versioning, A/B testing, and continuous model
+                            improvement.</li>
+                        <li>Implemented computer vision models for distracted driving/drowsiness achieving 95%+
+                            accuracy.</li>
+                        <li>Built edge ML infrastructure optimizing model performance maintaining <500ms inference
+                                latency.</li>
+                    </ul>
+
+                    <h5>Platform Architecture & Technical Design</h5>
+                    <ul>
+                        <li>Architected Perpetua Data Platform processing 2.5M+ events daily with <2-minute P95
+                                latency.</li>
+                        <li>Designed 3-tier microservices architecture reducing configuration deployment from 6 weeks to
+                            2 days.</li>
+                        <li>Led FE1.0 computer vision platform achieving 2x ML model performance improvement.</li>
+                        <li>Designed RESTful and GraphQL APIs serving mobile/web clients with 200+ RPS.</li>
+                    </ul>
+
+                    <h5>Business Impact</h5>
+                    <ul>
+                        <li>Delivered $57M+ total business value through AI-powered automation.</li>
+                        <li>Achieved 40% reduction in critical safety incidents.</li>
+                        <li>Launched in-app incident reporting increasing digital adoption 8%→18%.</li>
+                        <li>Established vendor governance with weekly Critical Program Reviews with VP/SVP stakeholders.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ECOLAB -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3>ECOLAB INC.</h3>
+                        <h4>Senior Development Manager | Program Lead</h4>
+                    </div>
+                    <div class="job-meta">
+                        <div>Jan 2020 – June 2022</div>
+                        <div>Naperville, IL</div>
+                    </div>
+                </div>
+                <p class="job-desc">
+                    Directed 30+ global engineers building "One Industrial Platform" on Azure cloud architecture serving
+                    multiple business divisions with IoT data from 50K+ devices.
+                </p>
+                <div class="achievements">
+                    <h5>Key Achievements</h5>
+                    <ul>
+                        <li>Architected enterprise IoT data ecosystem integrating Azure IoT Hub, Event Hub, and Azure
+                            Functions.</li>
+                        <li>Led mobile development for 5K+ field service technicians using Xamarin.Forms.</li>
+                        <li>Designed mobile sync engine with conflict resolution and offline-first capabilities.</li>
+                        <li>Established CI/CD pipelines achieving 99.95% platform uptime.</li>
+                        <li>Delivered 20% year-over-year cost savings through cloud optimization.</li>
+                        <li>Awarded 2× Center of Excellence Awards for Azure efficiency.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EARLIER ROLES -->
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-info">
+                        <h3>EARLIER ROLES</h3>
+                        <h4>Development Manager | Lead Developer | Senior Software Engineer</h4>
+                    </div>
+                    <div class="job-meta">
+                        <div>2005 – 2020</div>
+                        <div>Various (Ecolab, Infosys, TCS)</div>
+                    </div>
+                </div>
+                <div class="achievements">
+                    <h5>Notable Projects</h5>
+                    <ul>
+                        <li>Architected embedded IoT platform connecting 50K+ industrial controllers to Azure IoT Hub
+                            and AWS IoT Core.</li>
+                        <li>Led technical design for BP Gas Well Monitoring portal serving North American operations.
+                        </li>
+                        <li>Designed Refinery Performance Monitoring System deployed across 14 global refineries.</li>
+                        <li>Built BizTalk integration platform processing 10M+ messages daily.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="container" id="recommendations">
+        <h2 class="section-title">What Colleagues Say</h2>
+        <div class="rec-grid">
+            <div class="rec-card">
+                <div class="rec-text">
+                    <span>"I work closely with Sandeep Chugh... he is an exceptional technical leader. Sandeep expertly
+                        handles programs across EU and Far East regions... brings deep technical expertise in VLM and
+                        AI/ML... manages 3P partners seamlessly."</span>
+                </div>
+                <div class="rec-author">
+                    <div class="author-initial">AM</div>
+                    <div class="author-info">
+                        <strong>Aziz Makkiya</strong>
+                        <small>Head of Tech Products - LastMile MENA, Amazon</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rec-card">
+                <div class="rec-text">
+                    <span>"Sandeep was an incredibly efficient, passionate and effective TPM... able to manage and
+                        deliver complex projects, spanning teams and partners across multiple continents... always
+                        relied upon to go deep into details."</span>
+                </div>
+                <div class="rec-author">
+                    <div class="author-initial">SB</div>
+                    <div class="author-info">
+                        <strong>Stephan Betz</strong>
+                        <small>Director Software Engineering - Amazon</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rec-card">
+                <div class="rec-text">
+                    <span>"Sandeep excels at taking highly ambiguous large-scale challenges... transforming them into
+                        clear actionable roadmaps. With deep technical expertise in IoT backend services... combines
+                        architectural judgment with rigorous risk assessment."</span>
+                </div>
+                <div class="rec-author">
+                    <div class="author-initial">JS</div>
+                    <div class="author-info">
+                        <strong>Jatin Sharma</strong>
+                        <small>Safety Tech, Last Mile, Amazon</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rec-card">
+                <div class="rec-text">
+                    <span>"Sandeep is an exceptionally strong engineering leader... exhibits great technical acumen,
+                        diving deep into system design, risks and technical tradeoffs... maintains a high bar for
+                        himself and the team."</span>
+                </div>
+                <div class="rec-author">
+                    <div class="author-initial">SP</div>
+                    <div class="author-info">
+                        <strong>Sakshi Pahwa</strong>
+                        <small>Sr. Technical Product Manager, Amazon</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rec-card" style="grid-column: 1 / -1;">
+                <div class="rec-text">
+                    <span>"Sandeep's superpowers are GRIT and OWNERSHIP... When there was an outage or IT migration,
+                        Sandeep was always the first person on the call. He's the kind of person who takes stress away
+                        from his manager... you can be assured that it's done no matter the complexity."</span>
+                </div>
+                <div class="rec-author">
+                    <div class="author-initial">ED</div>
+                    <div class="author-info">
+                        <strong>Eric Duesing</strong>
+                        <small>SVP Product Development, Informa</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills, Awards, Education -->
+    <div class="container" id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container" style="margin-bottom: 60px;">
+            <div class="skill-box">
+                <h3>AWS Core Services</h3>
+                <div class="tags">
+                    <span class="tag">EC2</span><span class="tag">ECS (Fargate)</span><span
+                        class="tag">Lambda</span><span class="tag">S3</span><span class="tag">API Gateway</span><span
+                        class="tag">Step Functions</span><span class="tag">DynamoDB</span><span
+                        class="tag">RDS/Aurora</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>AWS ML/AI</h3>
+                <div class="tags">
+                    <span class="tag">SageMaker</span><span class="tag">Vision Language Models</span><span
+                        class="tag">Computer Vision</span><span class="tag">Edge AI</span><span class="tag">IoT
+                        Greengrass</span><span class="tag">Rekognition</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>DevOps & Tools</h3>
+                <div class="tags">
+                    <span class="tag">CloudFormation</span><span class="tag">CDK</span><span
+                        class="tag">Terraform</span><span class="tag">Docker/K8s</span><span class="tag">Git</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Programming</h3>
+                <div class="tags">
+                    <span class="tag">Python</span><span class="tag">Node.js</span><span
+                        class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">C#/.NET</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <h2 class="section-title">Awards</h2>
+                <div class="cards-grid" style="grid-template-columns: 1fr;">
+                    <div class="simple-card">
+                        <h3>🏆 Amazon Global AI Safety Impact Award (2024)</h3>
+                        <p>Recognized for AI innovation and program scale delivering measurable safety outcomes.</p>
+                    </div>
+                    <div class="simple-card">
+                        <h3>🏆 Ecolab Center of Excellence Award (2×)</h3>
+                        <p>Azure Cloud Optimization and Industrial Platform Excellence.</p>
+                    </div>
+                    <div class="simple-card">
+                        <h3>🏆 BP Helios Innovation Award</h3>
+                        <p>Enterprise Digital Transformation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="education">
+                <h2 class="section-title">Education & Certs</h2>
+                <div class="cards-grid" style="grid-template-columns: 1fr;">
+                    <div class="simple-card" style="border-left-color: var(--secondary);">
+                        <h3>PG Diploma in Advanced Computing</h3>
+                        <p>CDAC Hyderabad | 2005</p>
+                    </div>
+                    <div class="simple-card" style="border-left-color: var(--secondary);">
+                        <h3>Bachelor of Engineering (CS)</h3>
+                        <p>Maharishi Dayanand University | 2004</p>
+                    </div>
+                    <div class="simple-card" style="border-left-color: #10b981;">
+                        <h3>Active Certifications</h3>
+                        <p>✓ PMP - Project Management Professional</p>
+                        <p>✓ CSM - Certified ScrumMaster</p>
+                        <p>⏳ AWS Solutions Architect Pro (In Progress)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="container" id="contact-form">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="featured-box" style="max-width: 800px; margin: 0 auto; padding: 40px;">
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
+                Interested in discussing open opportunities? Fill out the form below to send me an email directly.
+            </p>
+
+            <form id="contactForm" style="display: grid; gap: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label for="fname"
+                            style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">First
+                            Name</label>
+                        <input type="text" id="fname" required
+                            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                    </div>
+                    <div>
+                        <label for="lname"
+                            style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Last
+                            Name</label>
+                        <input type="text" id="lname" required
+                            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email"
+                        style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Email
+                        Address</label>
+                    <input type="email" id="email" required
+                        style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                </div>
+
+                <div>
+                    <label for="details"
+                        style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Opportunity
+                        Details & Role Description</label>
+                    <textarea id="details" rows="5" required placeholder="Please share details about the position..."
+                        style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+
+                <div style="text-align: center; margin-top: 10px;">
+                    <button type="submit" class="btn btn-primary"
+                        style="border: none; padding: 14px 40px; font-size: 1rem; cursor: pointer; transition: background 0.2s;">
+                        Send Message
+                    </button>
+                    <p id="statusMsg" style="display: none; margin-top: 10px; font-weight: 500;"></p>
+                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px;">(This will open your
+                        default email client)</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            // REPLACE 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL PUBLIC KEY FROM EMAILJS
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            const statusMsg = document.getElementById('statusMsg');
+
+            // Show loading state
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+            statusMsg.style.display = 'none';
+
+            // Prepare template parameters (these must match your EmailJS template variables)
+            const templateParams = {
+                from_name: document.getElementById('fname').value + ' ' + document.getElementById('lname').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('details').value,
+                to_email: 'sandeepchugh2632@gmail.com'
+            };
+
+            // REPLACE 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' WITH YOUR ACTUAL IDS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function () {
+                    statusMsg.innerText = "Message sent successfully!";
+                    statusMsg.style.color = "green";
+                    statusMsg.style.display = "block";
+                    btn.innerText = "Sent";
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    console.error('FAILED...', error);
+                    statusMsg.innerText = "Failed to send. Please check your configuration.";
+                    statusMsg.style.color = "red";
+                    statusMsg.style.display = "block";
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container" style="margin-bottom: 20px;">
+            <h2>Let's Connect</h2>
+            <p style="opacity: 0.8;">Available for new opportunities | Willing to travel up to 30% | U.S. Permanent Resident</p>
+        </div>
+        <div class="footer-links">
+            <a href="mailto:sandeepchugh2632@gmail.com">sandeepchugh2632@gmail.com</a>
+            <a href="tel:+12817957042">(281) 795-7042</a>
+            <a href="https://www.linkedin.com/in/sandeep-chugh-chicago/" target="_blank">LinkedIn Profile</a>
+        </div>
+        <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 30px;">&copy; 2026 Sandeep Chugh</p>
+    </footer>
+
+</body>
+
+</html>
