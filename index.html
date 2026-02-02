@@ -992,60 +992,6 @@
         </div>
     </div>
 
-    <!-- Contact Form Section -->
-    <div class="container" id="contact-form">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="featured-box" style="max-width: 800px; margin: 0 auto; padding: 40px;">
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-light);">
-                Interested in discussing open opportunities? Fill out the form below to send me an email directly.
-            </p>
-
-            <form id="contactForm" style="display: grid; gap: 20px;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div>
-                        <label for="fname"
-                            style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">First
-                            Name</label>
-                        <input type="text" id="fname" required
-                            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-                    </div>
-                    <div>
-                        <label for="lname"
-                            style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Last
-                            Name</label>
-                        <input type="text" id="lname" required
-                            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-                    </div>
-                </div>
-
-                <div>
-                    <label for="email"
-                        style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Email
-                        Address</label>
-                    <input type="email" id="email" required
-                        style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-                </div>
-
-                <div>
-                    <label for="details"
-                        style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--primary);">Opportunity
-                        Details & Role Description</label>
-                    <textarea id="details" rows="5" required placeholder="Please share details about the position..."
-                        style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
-                </div>
-
-                <div style="text-align: center; margin-top: 10px;">
-                    <button type="submit" class="btn btn-primary"
-                        style="border: none; padding: 14px 40px; font-size: 1rem; cursor: pointer; transition: background 0.2s;">
-                        Send Message
-                    </button>
-                    <p id="statusMsg" style="display: none; margin-top: 10px; font-weight: 500;"></p>
-                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px;">(This will open your
-                        default email client)</p>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -1056,46 +1002,6 @@
             // REPLACE 'YOUR_PUBLIC_KEY' WITH YOUR ACTUAL PUBLIC KEY FROM EMAILJS
             emailjs.init("YOUR_PUBLIC_KEY");
         })();
-    </script>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
-            const statusMsg = document.getElementById('statusMsg');
-
-            // Show loading state
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-            statusMsg.style.display = 'none';
-
-            // Prepare template parameters (these must match your EmailJS template variables)
-            const templateParams = {
-                from_name: document.getElementById('fname').value + ' ' + document.getElementById('lname').value,
-                from_email: document.getElementById('email').value,
-                message: document.getElementById('details').value,
-                to_email: 'sandeepchugh2632@gmail.com'
-            };
-
-            // REPLACE 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' WITH YOUR ACTUAL IDS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then(function () {
-                    statusMsg.innerText = "Message sent successfully!";
-                    statusMsg.style.color = "green";
-                    statusMsg.style.display = "block";
-                    btn.innerText = "Sent";
-                    document.getElementById('contactForm').reset();
-                }, function (error) {
-                    console.error('FAILED...', error);
-                    statusMsg.innerText = "Failed to send. Please check your configuration.";
-                    statusMsg.style.color = "red";
-                    statusMsg.style.display = "block";
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                });
-        });
     </script>
 
     <!-- Footer -->
