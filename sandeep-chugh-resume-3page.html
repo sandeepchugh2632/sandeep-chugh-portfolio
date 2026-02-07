@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep Chugh - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Print-specific CSS for exact 3-page layout */
+        @page {
+            size: letter;
+            margin: 0.5in 0.6in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.4;
+            color: #1a1a1a;
+            background: white;
+        }
+
+        .page {
+            width: 7.5in;
+            min-height: 10in;
+            max-height: 10in;
+            margin: 0 auto;
+            background: white;
+            position: relative;
+            page-break-after: always;
+            padding: 0;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            padding: 24px 28px 20px;
+            margin-bottom: 18px;
+        }
+
+        .name {
+            font-size: 32pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .title {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 9pt;
+            color: #cbd5e1;
+            margin-top: 8px;
+        }
+
+        .contact-bar span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 0;
+            margin-top: 12px;
+            border-radius: 4px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-val {
+            display: block;
+            font-size: 16pt;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .stat-label {
+            font-size: 7.5pt;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content sections */
+        .content {
+            padding: 0 28px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2.5px solid #3b82f6;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            margin-top: 14px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        h4 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 3px;
+        }
+
+        .summary {
+            font-size: 10pt;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+
+        /* Competencies grid */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 16px;
+            margin-bottom: 12px;
+        }
+
+        .competency-box {
+            background: #f8fafc;
+            padding: 8px 10px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .competency-box h4 {
+            font-size: 9.5pt;
+            margin-bottom: 4px;
+        }
+
+        .comp-items {
+            font-size: 8.5pt;
+            color: #475569;
+            line-height: 1.3;
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 14px;
+            margin-bottom: 14px;
+        }
+
+        .achievement-item {
+            font-size: 9pt;
+            padding-left: 12px;
+            position: relative;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .achievement-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* Experience */
+        .job {
+            margin-bottom: 14px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .job-title-group h3 {
+            font-size: 11.5pt;
+        }
+
+        .job-meta {
+            text-align: right;
+            font-size: 9pt;
+            color: #64748b;
+        }
+
+        .job-desc {
+            font-size: 9.5pt;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .achievements h5 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            margin-bottom: 6px;
+        }
+
+        .achievements li {
+            font-size: 9pt;
+            padding-left: 12px;
+            margin-bottom: 3px;
+            position: relative;
+            color: #334155;
+            line-height: 1.35;
+        }
+
+        .achievements li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-size: 12pt;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .skill-category {
+            background: #f8fafc;
+            padding: 8px 10px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .skill-category h4 {
+            font-size: 9.5pt;
+            margin-bottom: 4px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .skill-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-size: 8pt;
+            font-weight: 500;
+        }
+
+        /* Awards & Education */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .award-item, .edu-item {
+            margin-bottom: 8px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .award-item::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #f59e0b;
+            font-size: 10pt;
+        }
+
+        .award-item h4 {
+            font-size: 9.5pt;
+            margin-bottom: 2px;
+        }
+
+        .award-item p, .edu-item p {
+            font-size: 8.5pt;
+            color: #64748b;
+        }
+
+        .edu-item h4 {
+            font-size: 9.5pt;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            @page {
+                margin: 0.5in 0.6in;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+    <div class="header">
+        <div class="name">SANDEEP CHUGH</div>
+        <div class="title">AI/ML & Vision Language Model Leader | Enterprise Cloud Transformation | Lead Technical Program Manager</div>
+        <div class="contact-bar">
+            <span>Chicago, IL</span>
+            <span>|</span>
+            <span>sandeepchugh2632@gmail.com</span>
+            <span>|</span>
+            <span>(281) 795-7042</span>
+            <span>|</span>
+            <span>linkedin.com/in/sandeep-chugh-chicago</span>
+            <span>|</span>
+            <span>U.S. Permanent Resident</span>
+        </div>
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-val">$57M+</span>
+                <span class="stat-label">Business Value</span>
+            </div>
+            <div class="stat">
+                <span class="stat-val">95%</span>
+                <span class="stat-label">On-Time Delivery</span>
+            </div>
+            <div class="stat">
+                <span class="stat-val">8</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat">
+                <span class="stat-val">50+</span>
+                <span class="stat-label">Team Members Led</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Executive Summary</h2>
+        <div class="summary">
+            Cloud transformation leader with 20+ years delivering enterprise-scale AWS, Azure, and hybrid cloud solutions for Fortune 500 clients including Amazon, Ecolab, BP, and global industrial enterprises. Expert in translating business objectives into technical solutions, leading cross-functional delivery teams, and managing complex client engagements that drive measurable business outcomes.
+        </div>
+        <div class="summary">
+            Leading AI/ML initiatives for Amazon Transportation's global safety technology, architecting Vision Language Models (VLM) for real-time unsafe driving behavior detection using camera feeds across 100K+ vehicles. Expert in full ML development lifecycle from cloud-based model training (AWS SageMaker) to edge deployment (AWS IoT Greengrass), achieving 95%+ accuracy.
+        </div>
+
+        <h2>Core Competencies</h2>
+        <div class="competencies-grid">
+            <div class="competency-box">
+                <h4>Client Engagement & Delivery</h4>
+                <div class="comp-items">Enterprise Program Management • C-Suite Engagement • Agile/SAFe/PMP • Scope/Schedule/Budget • Client Success</div>
+            </div>
+            <div class="competency-box">
+                <h4>Technical Leadership</h4>
+                <div class="comp-items">Solution Architecture • Risk Management • Cross-Functional Leadership • Mentorship • Innovation</div>
+            </div>
+            <div class="competency-box">
+                <h4>Cloud Architecture</h4>
+                <div class="comp-items">Cloud Adoption Framework • Hybrid Strategy • Microservices • DevOps & CI/CD • FinOps</div>
+            </div>
+            <div class="competency-box">
+                <h4>Security & Compliance</h4>
+                <div class="comp-items">AWS Security Best Practices • GDPR/CCPA/SOC2 • IAM • Privacy-First Design</div>
+            </div>
+        </div>
+
+        <h2>Key Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-item">Led Vision Language Model implementation for 100K+ vehicle fleet achieving 95%+ accuracy in unsafe driving detection</div>
+            <div class="achievement-item">Delivered $57M+ business value through AI-powered automation and safety improvements</div>
+            <div class="achievement-item">Architected Perpetua Data Platform processing 2.5M+ events daily with <2-min P95 latency</div>
+            <div class="achievement-item">Achieved 40% reduction in critical safety incidents through ML-driven interventions</div>
+            <div class="achievement-item">Designed 3-tier microservices reducing deployment cycles from 6 weeks to 2 days</div>
+            <div class="achievement-item">Built edge ML infrastructure maintaining <500ms inference latency at scale</div>
+            <div class="achievement-item">Established Azure IoT ecosystem integrating data from 50K+ industrial devices</div>
+            <div class="achievement-item">Delivered 20% YoY cloud cost savings through FinOps optimization</div>
+            <div class="achievement-item">Launched global deployments across 8 countries with 99.95% platform uptime</div>
+            <div class="achievement-item">Awarded Amazon Global AI Safety Impact Award (2024) and 2x Ecolab Excellence Awards</div>
+        </div>
+
+        <h2>Certifications & Awards</h2>
+        <div class="two-col">
+            <div>
+                <div class="award-item">
+                    <h4>Amazon Global AI Safety Impact Award (2024)</h4>
+                    <p>AI innovation and program scale delivering measurable safety outcomes</p>
+                </div>
+                <div class="award-item">
+                    <h4>Ecolab Center of Excellence Award (2x)</h4>
+                    <p>Azure Cloud Optimization and Industrial Platform Excellence</p>
+                </div>
+            </div>
+            <div>
+                <div class="award-item">
+                    <h4>BP Helios Innovation Award</h4>
+                    <p>Enterprise Digital Transformation</p>
+                </div>
+                <div class="award-item">
+                    <h4>Active Certifications</h4>
+                    <p>PMP - Project Management Professional • CSM - Certified ScrumMaster • AWS Solutions Architect Pro (In Progress)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <div class="content">
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title-group">
+                    <h3>AMAZON</h3>
+                    <h4>Senior Technical Program Manager, Transportation Safety Technology</h4>
+                </div>
+                <div class="job-meta">
+                    <div>June 2023 – Present</div>
+                    <div>Chicago, IL</div>
+                </div>
+            </div>
+            <p class="job-desc">Leading enterprise-scale AI/ML safety platforms powering Amazon's global last-mile and middle-mile transportation operations across 100K+ vehicles in 8 countries.</p>
+
+            <div class="achievements">
+                <h5>AI/ML & Computer Vision Leadership</h5>
+                <ul>
+                    <li>Led Vision Language Model (VLM) implementation for real-time unsafe driving behavior detection using in-cabin camera feeds across 100K+ vehicles</li>
+                    <li>Architected end-to-end ML development lifecycle from cloud training (AWS SageMaker) to edge deployment (AWS IoT Greengrass)</li>
+                    <li>Designed ML ops pipeline for model versioning, A/B testing, and continuous model improvement</li>
+                    <li>Implemented computer vision models for distracted driving/drowsiness achieving 95%+ accuracy</li>
+                    <li>Built edge ML infrastructure optimizing model performance maintaining <500ms inference latency</li>
+                </ul>
+
+                <h5>Platform Architecture & Technical Design</h5>
+                <ul>
+                    <li>Architected Perpetua Data Platform processing 2.5M+ events daily with <2-minute P95 latency</li>
+                    <li>Designed 3-tier microservices architecture reducing configuration deployment from 6 weeks to 2 days</li>
+                    <li>Led FE1.0 computer vision platform achieving 2x ML model performance improvement</li>
+                    <li>Designed RESTful and GraphQL APIs serving mobile/web clients with 200+ RPS</li>
+                    <li>Established vendor governance with weekly Critical Program Reviews with VP/SVP stakeholders</li>
+                </ul>
+
+                <h5>Business Impact</h5>
+                <ul>
+                    <li>Delivered $57M+ total business value through AI-powered automation</li>
+                    <li>Achieved 40% reduction in critical safety incidents</li>
+                    <li>Launched in-app incident reporting increasing digital adoption from 8% to 18%</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title-group">
+                    <h3>ECOLAB INC.</h3>
+                    <h4>Senior Development Manager | Program Lead</h4>
+                </div>
+                <div class="job-meta">
+                    <div>Jan 2020 – June 2022</div>
+                    <div>Naperville, IL</div>
+                </div>
+            </div>
+            <p class="job-desc">Directed 30+ global engineers building "One Industrial Platform" on Azure cloud architecture serving multiple business divisions with IoT data from 50K+ devices.</p>
+
+            <div class="achievements">
+                <h5>Key Achievements</h5>
+                <ul>
+                    <li>Architected enterprise IoT data ecosystem integrating Azure IoT Hub, Event Hub, and Azure Functions</li>
+                    <li>Led mobile development for 5K+ field service technicians using Xamarin.Forms</li>
+                    <li>Designed mobile sync engine with conflict resolution and offline-first capabilities</li>
+                    <li>Established CI/CD pipelines achieving 99.95% platform uptime</li>
+                    <li>Delivered 20% year-over-year cost savings through cloud optimization</li>
+                    <li>Awarded 2x Center of Excellence Awards for Azure efficiency</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <div class="content">
+        <h2>Professional Experience (Continued)</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title-group">
+                    <h3>EARLIER ROLES</h3>
+                    <h4>Development Manager | Lead Developer | Senior Software Engineer</h4>
+                </div>
+                <div class="job-meta">
+                    <div>2005 – 2020</div>
+                    <div>Various (Ecolab, Infosys, TCS)</div>
+                </div>
+            </div>
+
+            <div class="achievements">
+                <h5>Notable Projects</h5>
+                <ul>
+                    <li>Architected embedded IoT platform connecting 50K+ industrial controllers to Azure IoT Hub and AWS IoT Core</li>
+                    <li>Led technical design for BP Gas Well Monitoring portal serving North American operations</li>
+                    <li>Designed Refinery Performance Monitoring System deployed across 14 global refineries</li>
+                    <li>Built BizTalk integration platform processing 10M+ messages daily</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>AWS Core Services</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">EC2</span>
+                    <span class="skill-tag">ECS (Fargate)</span>
+                    <span class="skill-tag">Lambda</span>
+                    <span class="skill-tag">S3</span>
+                    <span class="skill-tag">API Gateway</span>
+                    <span class="skill-tag">Step Functions</span>
+                    <span class="skill-tag">DynamoDB</span>
+                    <span class="skill-tag">RDS/Aurora</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>AWS ML/AI</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">SageMaker</span>
+                    <span class="skill-tag">Vision Language Models</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Edge AI</span>
+                    <span class="skill-tag">IoT Greengrass</span>
+                    <span class="skill-tag">Rekognition</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>DevOps & Infrastructure</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">CloudFormation</span>
+                    <span class="skill-tag">CDK</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h4>Programming & Development</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">C#/.NET</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">GraphQL</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>Education</h2>
+        <div class="two-col">
+            <div class="edu-item">
+                <h4>PG Diploma in Advanced Computing</h4>
+                <p>CDAC Hyderabad | 2005</p>
+            </div>
+            <div class="edu-item">
+                <h4>Bachelor of Engineering (Computer Science)</h4>
+                <p>Maharishi Dayanand University | 2004</p>
+            </div>
+        </div>
+
+        <h2>Leadership Endorsements</h2>
+        <div class="summary" style="font-size: 9pt; line-height: 1.4;">
+            <strong>Aziz Makkiya</strong> (Head of Tech Products - LastMile MENA, Amazon): "Exceptional technical leader... deep expertise in VLM and AI/ML... manages 3P partners seamlessly."
+        </div>
+        <div class="summary" style="font-size: 9pt; line-height: 1.4;">
+            <strong>Stephan Betz</strong> (Director Software Engineering, Amazon): "Incredibly efficient, passionate and effective TPM... able to manage complex projects spanning teams and partners across multiple continents."
+        </div>
+        <div class="summary" style="font-size: 9pt; line-height: 1.4;">
+            <strong>Eric Duesing</strong> (SVP Product Development, Informa): "Sandeep's superpowers are GRIT and OWNERSHIP... the kind of person who takes stress away from his manager... you can be assured it's done no matter the complexity."
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
